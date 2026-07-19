@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    margin: 0;
+    font-family:
+        -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+        "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+    font-family:
+        source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+@layer base {
+    /* "Iris" — warm stone neutrals + a validated violet accent.
+       Warm base is the sophistication signal; violet is the identity; blue is gone.
+       Data marks use violet (chart-1); amber/teal earn their place only for 2nd/3rd series. */
+    :root {
+        --background: 40 14% 96%;      /* warm off-white page */
+        --foreground: 24 8% 15%;       /* warm charcoal ink   */
+        --card: 40 33% 99%;            /* warm white surface  */
+        --card-foreground: 24 8% 15%;
+        --popover: 40 33% 99%;
+        --popover-foreground: 24 8% 15%;
+        --primary: 258 53% 53%;        /* violet #6d47c9      */
+        --primary-foreground: 0 0% 100%;
+        --secondary: 36 12% 94%;
+        --secondary-foreground: 24 8% 15%;
+        --muted: 36 12% 94%;
+        --muted-foreground: 25 6% 45%; /* warm stone-500      */
+        --accent: 258 45% 95%;
+        --accent-foreground: 258 50% 42%;
+        --destructive: 4 74% 51%;
+        --destructive-foreground: 0 0% 100%;
+        --border: 30 10% 90%;          /* warm hairline       */
+        --input: 30 10% 90%;
+        --ring: 258 53% 53%;
+        /* validated on white + warm stone: violet, amber, teal, rose, gold */
+        --chart-1: 258 53% 53%;
+        --chart-2: 32 69% 51%;
+        --chart-3: 164 83% 34%;
+        --chart-4: 334 60% 55%;
+        --chart-5: 40 70% 50%;
+        --radius: 0.75rem;
+    }
+    .dark {
+        --background: 24 10% 7%;        /* warm near-black     */
+        --foreground: 40 20% 96%;
+        --card: 24 9% 10%;
+        --card-foreground: 40 20% 96%;
+        --popover: 24 9% 10%;
+        --popover-foreground: 40 20% 96%;
+        --primary: 258 72% 72%;        /* violet lifts for dark */
+        --primary-foreground: 24 30% 10%;
+        --secondary: 24 10% 16%;
+        --secondary-foreground: 40 20% 96%;
+        --muted: 24 10% 16%;
+        --muted-foreground: 30 8% 62%;
+        --accent: 258 38% 22%;
+        --accent-foreground: 258 72% 85%;
+        --destructive: 4 62% 48%;
+        --destructive-foreground: 0 0% 100%;
+        --border: 24 10% 18%;
+        --input: 24 10% 18%;
+        --ring: 258 72% 72%;
+        --chart-1: 258 72% 72%;
+        --chart-2: 32 75% 58%;
+        --chart-3: 164 60% 44%;
+        --chart-4: 334 66% 64%;
+        --chart-5: 40 72% 58%;
+    }
+}
+
+@layer utilities {
+    @keyframes pp-fade-up {
+        from { opacity: 0; transform: translateY(12px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes pp-shimmer {
+        100% { transform: translateX(100%); }
+    }
+    .pp-animate-in {
+        opacity: 0;
+        animation: pp-fade-up 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+    /* subtle premium ring + hover lift for cards */
+    .pp-card {
+        @apply bg-card text-card-foreground rounded-2xl border border-border;
+        box-shadow: 0 1px 2px rgba(16, 24, 40, 0.04), 0 1px 3px rgba(16, 24, 40, 0.06);
+        transition: box-shadow 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
+    }
+    .pp-card-hover:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(16, 24, 40, 0.08), 0 2px 6px rgba(16, 24, 40, 0.05);
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply bg-background text-foreground;
+    }
+}
+
+@layer base {
+    [data-debug-wrapper="true"] {
+        display: contents !important;
+    }
+
+    [data-debug-wrapper="true"] > * {
+        margin-left: inherit;
+        margin-right: inherit;
+        margin-top: inherit;
+        margin-bottom: inherit;
+        padding-left: inherit;
+        padding-right: inherit;
+        padding-top: inherit;
+        padding-bottom: inherit;
+        column-gap: inherit;
+        row-gap: inherit;
+        gap: inherit;
+        border-left-width: inherit;
+        border-right-width: inherit;
+        border-top-width: inherit;
+        border-bottom-width: inherit;
+        border-left-style: inherit;
+        border-right-style: inherit;
+        border-top-style: inherit;
+        border-bottom-style: inherit;
+        border-left-color: inherit;
+        border-right-color: inherit;
+        border-top-color: inherit;
+        border-bottom-color: inherit;
+    }
+}
