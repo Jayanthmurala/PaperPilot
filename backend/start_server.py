@@ -27,11 +27,13 @@ def main():
     print(f"Max body size: {limit_max_body_size / (1024*1024):.0f}MB")
     print(f"Multi-page PDF support enabled (up to 50+ pages)")
     
+    reload = os.environ.get("RELOAD", "false").lower() == "true"
+    
     uvicorn.run(
         "server:app",
         host=host,
         port=port,
-        reload=True,
+        reload=reload,
         limit_max_body_size=limit_max_body_size,
         limit_max_line_size=limit_max_line_size,
         timeout_keep_alive=120,  # Increase keep-alive for long uploads

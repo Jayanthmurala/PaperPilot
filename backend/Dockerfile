@@ -23,6 +23,4 @@ COPY . .
 ENV PORT=8000
 EXPOSE 8000
 
-# Single worker: the free tiers are memory-tight and OCR/LLM calls are I/O-bound
-# (async), so concurrency comes from the event loop, not processes.
-CMD ["sh", "-c", "uvicorn server:app --host 0.0.0.0 --port ${PORT:-8000} --timeout-keep-alive 120 --limit-max-body-size 104857600 --limit-max-line-size 16384"]
+CMD ["python", "start_server.py"]
