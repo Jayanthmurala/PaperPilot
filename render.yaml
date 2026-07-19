@@ -5,7 +5,7 @@ services:
     plan: free
     region: singapore
     rootDir: backend
-    dockerfilePath: ./Dockerfile
+    dockerfilePath: backend/Dockerfile
     healthCheckPath: /api/
     envVars:
       # --- secrets: set these in the Render dashboard (sync:false = not in git) ---
