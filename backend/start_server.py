@@ -34,8 +34,6 @@ def main():
         host=host,
         port=port,
         reload=reload,
-        limit_max_body_size=limit_max_body_size,
-        limit_max_line_size=limit_max_line_size,
         timeout_keep_alive=120,  # Increase keep-alive for long uploads
     )
 
