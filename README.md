@@ -14,6 +14,16 @@ To get started with PaperPilot, please refer to our specialized documentation fi
 
 ---
 
+## 🔑 Demo Credentials
+
+For quick evaluation, you can log in directly using the pre-configured teacher account:
+*   **Email**: `test.teacher@paperpilot.dev`
+*   **Password**: `password123`
+
+*(Alternatively, you can click "Sign up" on the login screen to register a new account).*
+
+---
+
 ## 💎 Key Features
 
 *   **Zero-Cost Local OCR**: High-performance handwriting extraction using Tesseract, refined by Llama 3.3.
